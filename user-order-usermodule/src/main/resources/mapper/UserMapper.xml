@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+    <!DOCTYPE mapper   
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zydsj.userorder.user.mapper.UserMapper">
+
+
+	<resultMap id="BaseResultMap" type="com.zydsj.userorder.po.User">
+		<id column="id" property="id" />
+		<result property="userName" column="userName" />
+		<result property="passWord" column="passWord" />
+		<result property="score" column="score" />
+	</resultMap>
+
+	<select id="select" resultMap="BaseResultMap">
+		SELECT * FROM User WHERE id=#{id}
+	</select>
+
+
+
+
+</mapper>
+

@@ -1,0 +1,13 @@
+server:
+  port: 8086
+eureka:
+  instance:
+    ip-address: 127.0.0.1                           # 指定当profile=peer1时，主机名是peer1
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8086/eureka/      # 将自己注册到peer2这个Eureka上面去
+
+zuul:
+  routes:
+    user-order-usermodule: /user/**
+    user-order-repomodule: /repo/**

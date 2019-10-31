@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: user-order-eureka-ha
+---
+
+spring:
+  profiles: eureka-physics                                 # 指定profile=peer1
+server:
+  port: 8086
+eureka:
+  instance:
+    ip-address: 192.168.22.109                           # 指定当profile=peer1时，主机名是peer1
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.119.100:8085/eureka/      # 将自己注册到peer2这个Eureka上面去
+
+---
+spring:
+  profiles: eureka-vm
+server:
+  port: 8085
+eureka:
+  instance:
+    ip-address: 192.168.119.100
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.22.109:8761/eureka/
